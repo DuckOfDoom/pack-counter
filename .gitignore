@@ -1,0 +1,5 @@
+.stack-work
+firesidelocator.cabal
+firesidelocator.keter
+dist/
+db
