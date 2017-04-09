@@ -9,16 +9,6 @@ import           Data.Monoid             ((<>))
 import           Data.Text               (Text)
 import qualified Data.Text               as T
 
-data CardType
-  = Common
-  | GoldenCommon
-  | Rare
-  | GoldenRare
-  | Epic
-  | GoldenEpic
-  | Legendary
-  | GoldenLegendary
-
 data Count = Count
   { _common          :: Int
   , _goldenCommon    :: Int
@@ -54,13 +44,13 @@ instance Show Count where
 commands :: [(Text,  Count -> Count)]
 commands =
   [ ("reset", const emptyCount)
-  , ("c", inc common)
+  , ("c" , inc common)
   , ("gc", inc goldenCommon)
-  , ("r", inc rare)
+  , ("r" , inc rare)
   , ("gr", inc goldenRare)
-  , ("e", inc epic)
+  , ("e" , inc epic)
   , ("ge", inc goldenEpic)
-  , ("l", inc legendary)
+  , ("l" , inc legendary)
   , ("gl", inc goldenLegendary)
   ]
   where inc lens' c = c & lens' %~ (+1)
